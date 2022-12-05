@@ -1,6 +1,12 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useLocation,Link } from 'react-router-dom'
 
 export default function Navbar() {
+  let location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname)
+  }, [location])
+  
   return (
     <>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,17 +17,12 @@ export default function Navbar() {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          <Link class={`nav-link ${location==='/'?'active':''}`} to="/">Home </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Features</a>
+          <Link class={`nav-link ${location==='/'?'active':''}`}to="/about">About</Link>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="/">Disabled</a>
-        </li>
+        
       </ul>
     </div>
   </nav>

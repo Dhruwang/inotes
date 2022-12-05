@@ -1,9 +1,11 @@
 import React from 'react'
-import { useContext } from 'react'
-import NoteContext from '../context/notes/noteContext'
+
 export default function Home(props) {
-    const a = useContext(NoteContext)
+    
   return (
-    <div>I am {a.name}</div>
+    <>
+    <h1>Add a note</h1>
+    <h1>View Your notes</h1>
+    </>
   )
 }
