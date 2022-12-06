@@ -7,10 +7,12 @@ export default function Notes() {
     const context = useContext(NoteContext);
      const {notes,setnotes } = context;
   return (
+    <div className='container px-4'>
     <div className='row'>
         {notes.map((note)=>{
       return <NoteItems note={note}/>
     })}
+    </div>
     </div>
   )
 }
