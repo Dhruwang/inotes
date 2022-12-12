@@ -1,11 +1,15 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import NoteContext from '../context/notes/noteContext'
 import NoteItems from './NoteItems';
 
 
 export default function Notes() {
     const context = useContext(NoteContext);
-     const {notes,setnotes } = context;
+     const {notes,setnotes,getNotes } = context;
+     useEffect(() => {
+       getNotes()
+     }, [])
+     
   return (
     <div className='container px-4'>
     <div className='row'>
