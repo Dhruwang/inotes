@@ -5,14 +5,14 @@ import NoteItems from './NoteItems';
 
 export default function Notes() {
   const context = useContext(NoteContext);
-  const { notes, setnotes, getNotes } = context;
+  const { notes, setnotes, getNotes, editNotes } = context;
   const ref = useRef(null)
-  const [note, setNote] = useState({ etitle: "", edescription: "" })
+  const [note, setNote] = useState({id:"", etitle: "", edescription: "" })
 
 
   const updateNote = (currentNote) => {
     ref.current.click()
-    setNote({etitle : currentNote.title, edescription:currentNote.description})
+    setNote({id:currentNote._id ,etitle : currentNote.title, edescription:currentNote.description})
   }
 
 
@@ -25,7 +25,7 @@ export default function Notes() {
   }
 
   const handleClick = (e)=>{
-    console.log(note)
+    editNotes(note.id, note.etitle, note.edescription)
     e.preventDefault()
   }
 
