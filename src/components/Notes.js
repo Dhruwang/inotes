@@ -5,7 +5,7 @@ import NoteItems from './NoteItems';
 
 export default function Notes() {
   const context = useContext(NoteContext);
-  const { notes, setnotes, getNotes, editNotes } = context;
+  const { notes, getNotes, editNotes } = context;
   const ref = useRef(null)
   const [note, setNote] = useState({id:"", etitle: "", edescription: "" })
 
@@ -18,6 +18,8 @@ export default function Notes() {
 
   useEffect(() => {
     getNotes()
+     
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
  
   const onChange = (event) => {
@@ -58,12 +60,13 @@ export default function Notes() {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleClick}>Save changes</button>
+              <button type="button" className="btn btn-primary" disabled={note.etitle.length<5 || note.edescription.length<5} data-bs-dismiss="modal" onClick={handleClick}>Save changes</button>
             </div>
           </div>
         </div>
       </div>
       <div className='container px-4'>
+        {notes.length===0 && "no notes to Display"}
         <div className='row'>
           {notes.map((note) => {
             return <NoteItems updateNote={updateNote} note={note} />

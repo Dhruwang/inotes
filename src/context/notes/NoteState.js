@@ -19,7 +19,7 @@ const NoteState = (props) => {
   }
   // To add Notes 
   const AddNotes = async (title, description) => {
-    await fetch(`${host}/api/notes/addnotes`, {
+    const response = await fetch(`${host}/api/notes/addnotes`, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json',
@@ -27,15 +27,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description })
     });
-    console.log('adding note')
-
-    const note = {
-      "_id": "638b3df7c91a0d3a9e3e623d5",
-      "user": "637facb17a4813ede010e9e0",
-      "title": title,
-      "description": description,
-      "__v": 0
-    }
+    const note = await response.json()
     setnotes(notes.concat(note))
   }
   // To delete Notes 
@@ -55,7 +47,7 @@ const NoteState = (props) => {
 
   const editNotes = async (id, title, description) => {
     // API Call 
-    const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+    await fetch(`${host}/api/notes/updatenote/${id}`, {
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +55,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description })
     });
-    const json = response.json();
+    // const json = response.json();
     // To update note in client 
     let newNotes = JSON.parse(JSON.stringify(notes))
     for (let index = 0; index < newNotes.length; index++) {
