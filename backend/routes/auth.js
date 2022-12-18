@@ -48,6 +48,7 @@ router.post('/createUser',
     body('email', 'enter a valid email').isEmail(),
     body('password', 'password should not be empty').exists(),
     async(req,res)=>{
+        let success = false
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
@@ -69,7 +70,8 @@ router.post('/createUser',
                 }
             }
             const token = jwt.sign(data, privateKey);
-            res.json({token})
+            success = true;
+            res.json({success,token})
         } catch (error) {
             console.log(error.message)
             res.status(500).send("internal server error")

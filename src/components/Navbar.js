@@ -1,31 +1,33 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { useLocation,Link } from 'react-router-dom'
 
 export default function Navbar() {
   let location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname)
-  }, [location])
   
   return (
     <>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
           <Link class={`nav-link ${location==='/'?'active':''}`} to="/">Home </Link>
         </li>
         <li class="nav-item">
           <Link class={`nav-link ${location==='/'?'active':''}`}to="/about">About</Link>
         </li>
-        
-      </ul>
+    </ul>
+    <div class="logSign mx-3">
+    <Link class="btn btn-primary mx-1" to="/login" role="button">LogIn</Link>
+    <Link class="btn btn-primary mx-1" to="/signup" role="button">SignUp</Link>
     </div>
-  </nav>
+  </div>
+</nav>
   </>
   )
 }
