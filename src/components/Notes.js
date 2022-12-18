@@ -48,13 +48,13 @@ export default function Notes() {
             </div>
             <div className="modal-body">
               <form>
-                <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="etitle" name='etitle' value={note.etitle}  onChange={onChange} />
+                <div className="mb-3">
+                  <label for="title" className="form-label">Title</label>
+                  <input type="text" className="form-control" id="etitle" name='etitle' value={note.etitle}  onChange={onChange} />
                 </div>
-                <div class="mb-3">
-                  <label for="description" class="form-label">Description</label>
-                  <input type="text" class="form-control" id="edescription" name='edescription' value={note.edescription} onChange={onChange} />
+                <div className="mb-3">
+                  <label for="description" className="form-label">Description</label>
+                  <input type="text" className="form-control" id="edescription" name='edescription' value={note.edescription} onChange={onChange} />
                 </div>
               </form>
             </div>

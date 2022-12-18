@@ -14,23 +14,25 @@ router.post('/createUser',
     body('email', 'enter a valid email').isEmail(),
     body('password', 'enter a valid password').isLength({ min: 5 }),
     async (req, res) => {
+        let success = false
         // if there are errors return bad request and errors 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
         // check whether the user with this email exist already 
-        let user = await User.findOne({ email: req.body.email })
+        const {name,email,password}=req.body
+        let user = await User.findOne({ email: email })
         if (user) {
             return res.status(400).json({ error: "sorry user with same email already exist" })
         }
 
         const salt = await bcrypt.genSalt(10);
-        const secPass = await bcrypt.hash(req.body.password, salt);
+        const secPass = await bcrypt.hash(password, salt);
 
         user = await User.create({
-            name: req.body.name,
-            email: req.body.email,
+            name: name,
+            email: email,
             password: secPass,
         })
         const data = {
@@ -40,8 +42,8 @@ router.post('/createUser',
         }
         // console.log(user)
         const token = jwt.sign(data, privateKey);
-
-        res.json({ token })
+        success = true
+        res.json({success, token })
     })
     // login a user using: POST "api/auth/login" .login required 
     router.post('/login',
