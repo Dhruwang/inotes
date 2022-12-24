@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function Alert() {
+export default function Alerts(props) {
     return (
-        <div>
-            <div className="alert alert-primary" role="alert">
-                A simple primary alert with <a href="/" className="alert-link">an example link</a>
-            </div>
-        </div>
+      <div style={{height:'50px'}}>
+        {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show mb-2`} role="alert">
+        <strong>{props.alert.type}</strong> {props.alert.message}
+      </div>}
+      </div>
     )
 }

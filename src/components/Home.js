@@ -7,9 +7,9 @@ export default function Home(props) {
   return (
     <>
     <h1>Add a note</h1>
-    <AddNotes />
+    <AddNotes showAlert={props.showAlert}/>
     <h1>View Your notes</h1>
-    <Notes />
+    <Notes showAlert={props.showAlert}/>
     </>
   )
 }

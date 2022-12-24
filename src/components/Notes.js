@@ -3,7 +3,7 @@ import NoteContext from '../context/notes/noteContext'
 import NoteItems from './NoteItems';
 
 
-export default function Notes() {
+export default function Notes(props) {
   const context = useContext(NoteContext);
   const { notes, getNotes, editNotes } = context;
   const ref = useRef(null)
@@ -13,6 +13,7 @@ export default function Notes() {
   const updateNote = (currentNote) => {
     ref.current.click()
     setNote({id:currentNote._id ,etitle : currentNote.title, edescription:currentNote.description})
+    
   }
 
 
@@ -29,6 +30,7 @@ export default function Notes() {
   const handleClick = (e)=>{
     editNotes(note.id, note.etitle, note.edescription)
     e.preventDefault()
+    props.showAlert("success","notes Updated successfully")
   }
 
   return (

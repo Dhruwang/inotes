@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Login() {
+export default function Login(props) {
 const host = 'http://localhost:5000'
 const [credentials, setcredentials] = useState({email:"",password:""})
 let Navigate = useNavigate();
@@ -21,8 +21,11 @@ const handleSubmit= async (e)=>{
       if(json.success){
         // save authToken and redirect 
         localStorage.setItem('token',json.token)
+        props.showAlert("success","login successfully")
         Navigate("/")
-
+      }
+      else{
+        props.showAlert("danger","login failed")
       }
 }
 const onChange = (event) => {
@@ -32,15 +35,15 @@ const onChange = (event) => {
     return (
         <div className='container w-50'>
             <form  onSubmit={handleSubmit}>
-                <div class="form-group my-2">
+                <div className="form-group my-2">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" placeholder="Enter email" />
+                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name='email' aria-describedby="emailHelp" placeholder="Enter email" />
                 </div>
-                <div class="form-group my-2">
+                <div className="form-group my-2">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" value={credentials.password} onChange={onChange} id="password" name='password'  placeholder="Password" />
+                    <input type="password" className="form-control" value={credentials.password} onChange={onChange} id="password" name='password'  placeholder="Password" />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     )
