@@ -5,6 +5,7 @@ const NoteState = (props) => {
   const host = 'http://localhost:5000'
   const initialNote = []
   const [notes, setnotes] = useState(initialNote)
+  
   const getNotes = async () => {
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
