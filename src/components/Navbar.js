@@ -15,11 +15,14 @@ export default function Navbar() {
     <>
 
   <nav className="navbar navbar-expand-lg ">
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
+    <Link>NoteSpace</Link>
+  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <svg className="text-light" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-nested" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z"/>
+</svg>
   </button>
 
-  <div className="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav">
     <li className="nav-item active">
           <Link className={`nav-link ${location==='/'?'active':''}`} to="/">Home </Link>
@@ -35,8 +38,6 @@ export default function Navbar() {
         </li>
     </ul>
     {!localStorage.getItem("token")?<div className="logSign mx-3">
-    <Link className="btn btn-primary mx-1" to="/login" role="button">LogIn</Link>
-    <Link className="btn btn-primary mx-1" to="/signup" role="button">SignUp</Link>
     </div>:<button className="btn btn-primary mx-1" onClick={handleLogOut} role="button">Logout</button>}
   </div>
 </nav>

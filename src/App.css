@@ -15,6 +15,9 @@
 i{
   cursor: pointer;
 }
+a{
+  text-decoration: none;
+}
 .title{
   font-size: 5rem;
   text-align: center;
@@ -57,11 +60,17 @@ i{
   background: transparent;
   position: fixed;
 }
+
 .navbar a{
+  text-underline-offset: 0;
+  margin: 0rem 1rem;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
   color: white;
 
+}
+#navbarSupportedContent{
+  justify-content: end;
 }
 /* navbar css ends  */
 /* home page css starts */
@@ -91,4 +100,44 @@ i{
   border: 2px solid white;
   background-color: transparent;
 }
+.HomeButton:hover{
+  background-color: white;
+  color: black;
+}
 /* home page css ends  */
+
+@media (max-width: 1200px){
+  
+  
+}
+@media (max-width: 1024px){
+  
+
+  
+}
+  
+  @media (max-width: 768px){
+  
+    .title{
+      font-size: 4rem;
+    }
+    .content p{
+      font-size: 1rem;
+    }
+    .HomeButton{
+      margin: 2rem;
+    }
+  }
+  @media (max-width: 640px){
+    
+    .title{
+      font-size: 2.5rem;
+    }
+    .content p{
+      font-size: 1rem;
+    }
+    
+    }
+  
+
+  
