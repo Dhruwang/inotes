@@ -18,15 +18,15 @@ const handleSubmit= async (e)=>{
       });
       const json = await response.json()
       console.log(json)
-      if(json.success){
-        // save authToken and redirect 
-        localStorage.setItem('token',json.token)
-        Navigate("/")
-        props.showAlert("success","login successfully")
-      }
-      else{
-        props.showAlert("danger","login failed")
-      }
+      // if(json.success){
+      //   // save authToken and redirect 
+      //   localStorage.setItem('token',json.token)
+      //   Navigate("/")
+      //   props.showAlert("success","login successfully")
+      // }
+      // else{
+      //   props.showAlert("danger","login failed")
+      // }
 }
 const onChange = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value })

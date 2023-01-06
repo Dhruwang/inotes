@@ -15,6 +15,12 @@
 i{
   cursor: pointer;
 }
+.title{
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+  letter-spacing: 1rem;
+}
 
 .App-header {
   background-color: #282c34;
@@ -39,3 +45,50 @@ i{
     transform: rotate(360deg);
   }
 }
+/* alert component css starts  */
+.alert{
+  position: fixed;
+  height: 0px;
+}
+/* alert component css ends  */
+/* navbar css starts  */
+.navbar{
+  width: 100%;
+  background: transparent;
+  position: fixed;
+}
+.navbar a{
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  color: white;
+
+}
+/* navbar css ends  */
+/* home page css starts */
+.home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url(./Images/background.png);
+  background-size: cover;
+  padding: 0 20vw;
+}
+.content{
+  text-align: center;
+}
+.content p{
+  font-size: 1.5rem;
+  color: white;
+}
+.HomeButton{
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border: 2px solid white;
+  background-color: transparent;
+}
+/* home page css ends  */
