@@ -52,7 +52,7 @@ export default function Notes(props) {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">Edit Note</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -64,8 +64,9 @@ export default function Notes(props) {
                 </div>
                 <div className="mb-3">
                   <label for="description" className="form-label">Description</label>
-                  <input type="text" className="form-control" id="edescription" name='edescription' value={note.edescription} onChange={onChange} />
+                  <textarea rows="4" cols="50" type="text" className="form-control" id="edescription" name='edescription' value={note.edescription} onChange={onChange} />
                 </div>
+                <div className='wordCounterBar'></div>
               </form>
             </div>
             <div className="modal-footer">
@@ -75,9 +76,9 @@ export default function Notes(props) {
           </div>
         </div>
       </div>
-      <div className='container px-4'>
+      <div className='container '>
         {notes.length===0 && "no notes to Display"}
-        <div className='row'>
+        <div className='row justify-content-center'>
           {notes.map((note) => {
             return <NoteItems updateNote={updateNote} note={note} />
           })}

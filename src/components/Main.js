@@ -5,11 +5,11 @@ import Notes from "./Notes"
 export default function Main(props) {
      
   return (
-    <>
-    <h1>Add a note</h1>
+    <div className='main mx-auto'>
+    <h3>Add a note</h3>
     <AddNotes showAlert={props.showAlert}/>
-    <h1>View Your notes</h1>
+    <h3>All notes</h3>
     <Notes showAlert={props.showAlert}/>
-    </>
+    </div>
   )
 }
