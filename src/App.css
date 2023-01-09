@@ -121,12 +121,21 @@ a{
 /* NoteItem css starts  */
 .card{
   width: 30%;
+  overflow: hidden;
   border-radius: 0.5rem;
   color: white;
   background: rgb(22,36,30);
 background: linear-gradient(90deg, rgba(22,36,30,1) 36%, rgba(24,43,35,1) 75%);
 box-shadow: 5px 10px 15px black;
 margin: 1rem;
+}
+.card-body{
+  height: 10rem;
+  overflow: hidden;
+}
+.card-text{
+  height: 6rem;
+  overflow: hidden;
 }
 /* NoteItem css ends  */
 /* modal css starts  */
