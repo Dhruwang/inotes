@@ -11,7 +11,7 @@ export default function NoteItems(props) {
         <>
         
         <div className="card" >
-        <Link to={`/${note._id}`}>
+        <Link to={`note/${note._id}`}>
             <div>
                     <div className="card-body">
                         <h5 className="card-title">{note.title}</h5>
