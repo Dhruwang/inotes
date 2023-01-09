@@ -16,7 +16,6 @@ export default function Notes(props) {
   const updateNote = (currentNote) => {
     ref.current.click()
     setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description })
-
   }
 
 
@@ -90,7 +89,7 @@ export default function Notes(props) {
           </div>
         </div>
       </div>
-      <div className='container '>
+      <div className='Notecontainer '>
         {notes.length === 0 && "no notes to Display"}
         <div className='row justify-content-center'>
           {notes.map((note) => {
