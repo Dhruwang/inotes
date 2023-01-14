@@ -24,7 +24,10 @@ i {
 
 a {
   text-decoration: none;
-  color: black;
+  background: linear-gradient(to right, #f32170,
+                    #ff6b08, #cf23cf, #eedd44);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
 }
 
 a:hover {
@@ -125,7 +128,6 @@ a:hover {
   background-color: transparent;
 }
 
-.Notecontainer {}
 
 /* Notes css ends  */
 /* main css starts  */
@@ -149,9 +151,12 @@ a:hover {
   border: none;
   background-color: #E9EFF4;
   box-shadow: 20px 20px 20px #bdbdbd,
-    -20px -20px 50px white;
-  color: black;
+    -10px -10px 50px rgb(255, 255, 255);
+  color: rgb(200, 24, 162);
   margin: 1rem;
+}
+.card a:hover{
+  color: black;
 }
 
 .card-body {
@@ -203,7 +208,7 @@ a:hover {
 /* modal css ends  */
 /* notepop css starts  */
 .notepop {
-  background: rgba(14, 14, 14, 0.756);
+  background: rgba(189, 188, 188, 0.756);
   z-index: 1;
   height: 100%;
   width: 100%;
@@ -214,13 +219,20 @@ a:hover {
 }
 
 .notepopinner {
-  background: linear-gradient(90deg, rgba(22, 36, 30, 1) 36%, rgba(24, 43, 35, 1) 75%);
+  border-radius: 2rem;
+  border: none;
+  background-color: #E9EFF4;
+  box-shadow: 20px 20px 20px #bdbdbd;
   width: 70vw;
   /* height: 50vh; */
-  color: white;
-  text-align: center;
-  padding: 2rem;
+  color: black;
+  text-align: left;
+  padding: 1rem;
 }
+.notePopContent{
+  text-align: center;
+}
+
 
 /* notepop css ends  */
 

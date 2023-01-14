@@ -11,7 +11,7 @@ export default function AddNotes(props) {
     event.preventDefault()
     AddNotes(note.title, note.description)
     setNote({ title: "", description: "" })
-    props.showAlert("success","notes added successfully")
+    // props.showAlert("success","notes added successfully")
 
   }
   const onChange = (event) => {

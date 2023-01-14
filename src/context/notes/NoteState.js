@@ -28,10 +28,10 @@ const NoteState = (props) => {
       },
     });
     const json = await response.json()
-    setnotebyId(json.filter(({_id})=> _id === id))
-    console.log(notebyId)
+    const note = await json.filter(({_id})=> _id === id)
+      setnotebyId(note)
+    }
     
-  }
   // To add Notes 
   const AddNotes = async (title, description) => {
     const response = await fetch(`${host}/api/notes/addnotes`, {
