@@ -5,6 +5,7 @@
 
 body {
   background-color: #E6ECF1;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-logo {
@@ -22,10 +23,10 @@ i {
   cursor: pointer;
 }
 
-a {
+a ,h3{
   text-decoration: none;
-  background: linear-gradient(to right, #f32170,
-                    #ff6b08, #cf23cf, #eedd44);
+  background: linear-gradient(to right, #ab0042,
+                    #ff6b08, #004e0e);
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
 }
@@ -63,6 +64,9 @@ a:hover {
 }
 
 /* alert component css ends  */
+/* popup css starts  */
+
+/* popup css ends  */
 /* navbar css starts  */
 .navbar {
   width: 100%;
@@ -217,6 +221,12 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+.notepopinner > *{
+  background: linear-gradient(to right, #ab0042,
+                    #ff6b08, #004e0e);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+}
 
 .notepopinner {
   border-radius: 2rem;
@@ -225,13 +235,17 @@ a:hover {
   box-shadow: 20px 20px 20px #bdbdbd;
   width: 70vw;
   /* height: 50vh; */
-  color: black;
   text-align: left;
   padding: 1rem;
+}
+.noterpopinnertop{
+  display: flex;
+  justify-content: space-between;
 }
 .notePopContent{
   text-align: center;
 }
+
 
 
 /* notepop css ends  */

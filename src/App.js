@@ -11,10 +11,13 @@ import Alert from "./components/Alert";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Notepop from "./components/Notepop";
+import Popup from "./components/Popup";
 
 
 function App(props) {
   const [alert, setAlert] = useState(null)
+  const [popup,setpopup] = useState(null)
+
 
   const showAlert = (type,message)=>{
     setAlert({
@@ -24,12 +27,21 @@ function App(props) {
     setTimeout(() => {
       setAlert(null)
     }, 2000);
-    
+  }
+
+  const showPopup = (title,message)=>{
+    console.log("running")
+    setpopup({
+      title : title,
+      message : message
+    })
+    console.log(popup)
   }
   return (
     <NoteState>
       <BrowserRouter>
         <Navbar />
+        <Popup popup={popup} />
         <Alert alert={alert} /> 
         <Routes>
         
@@ -38,7 +50,7 @@ function App(props) {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
         <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
-        <Route exact path="main/note/:id" note={props.note} element={<Notepop/>} />
+        <Route exact path="main/note/:id" note={props.note}  element={<Notepop showPopup={showPopup}/>} />
         
         </Routes>
       </BrowserRouter>
