@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Notepop from "./components/Notepop";
 import Popup from "./components/Popup";
+import DynamicIsland from "./components/DynamicIsland";
 
 
 function App(props) {
@@ -53,6 +54,7 @@ function App(props) {
         <Route exact path="main/note/:id" note={props.note}  element={<Notepop showPopup={showPopup}/>} />
         
         </Routes>
+        <DynamicIsland />
       </BrowserRouter>
     </NoteState>
   );

@@ -25,10 +25,11 @@ i {
 
 a ,h3{
   text-decoration: none;
-  background: linear-gradient(to right, #ab0042,
+  /* background: linear-gradient(to right, #ab0042,
                     #ff6b08, #004e0e);
             -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
+            -webkit-background-clip: text; */
+            color: rgb(99, 99, 99);
 }
 
 a:hover {
@@ -245,8 +246,30 @@ a:hover {
 .notePopContent{
   text-align: center;
 }
+#save{
+  display: none;
+}
 
-
+/* Dynamic Island css starts  */
+.dynamicIsland{
+  margin: auto;
+  position: fixed;
+  left: 40%;
+  bottom: 1rem;
+  height: 3rem;
+  width: 20%;
+  background-color: #292929;
+  border: 1px solid white;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 10px orange,
+  -2px -2px 10px purple,
+  2px 2px 10px white;
+  transition: 0.2s ease-in-out;
+}
+.dynamicIsland:hover{
+  transform: scale(1.2);
+}
+/* Dynamic island css ends  */
 
 /* notepop css ends  */
 

@@ -62,6 +62,7 @@ const NoteState = (props) => {
 
   const editNotes = async (id, title, description) => {
     // API Call 
+    console.log("running",id,title,description)
     await fetch(`${host}/api/notes/updatenote/${id}`, {
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       headers: {
