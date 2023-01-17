@@ -1,8 +1,16 @@
 import React,{useContext} from 'react'
 import NoteContext from '../context/notes/noteContext'
+import { useNavigate } from "react-router-dom";
 
 export default function Popup(props) {
+  const context = useContext(NoteContext)
+    const {DeleteNotes} = context;
+    const navigate = useNavigate();
   const handleDelete = ()=>{
+    let index = window.location.href.lastIndexOf("/")
+    DeleteNotes(window.location.href.slice(index+1,))
+    navigate("/main");
+
     
   }
   

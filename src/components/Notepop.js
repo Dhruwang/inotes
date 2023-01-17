@@ -14,7 +14,6 @@ export default function Notepop(props) {
   
 
   const fetchNoteId=()=>{
-    console.log("running")
     let index = window.location.href.lastIndexOf("/")
     getNotesById(window.location.href.slice(index+1,))
   }
