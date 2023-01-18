@@ -17,7 +17,7 @@ router.get('/fetchallnotes', fetchUser, async (req, res) => {
 // endpoint to add notes. login required 
 router.post('/addnotes', fetchUser, [
     body('title',"enter a valid title").isLength({min:3}),
-    body('description',"enter a valid description").isLength({min:3})
+    body('description',"enter a valid description").isLength({min:5})
 ],
  async (req, res) => {
     try { 

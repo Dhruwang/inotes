@@ -127,11 +127,6 @@ a:hover {
 
 /* home page css ends  */
 /* Notes css starts  */
-#title,
-#description {
-  color: white;
-  background-color: transparent;
-}
 
 
 /* Notes css ends  */
@@ -148,6 +143,27 @@ a:hover {
 }
 
 /* main css ends  */
+/* Addnote css starts  */
+.addNote{
+  padding-top: 5vw;
+}
+.addNoteInner{
+  border: 4px solid #959697af; 
+  padding: 2rem 5rem;
+}
+.addNoteInner input {
+  background-color: transparent;
+  border: none;
+  color: #282c34;
+  text-transform: uppercase;
+}
+.addNoteInner textarea{
+  background-color: transparent;
+}
+.tagname{
+  border: 2px solid black;
+}
+/* Addnote css ends */
 /* NoteItem css starts  */
 .card {
   width: 30%;
@@ -223,10 +239,7 @@ a:hover {
   justify-content: center;
 }
 .notepopinner > *{
-  background: linear-gradient(to right, #ab0042,
-                    #ff6b08, #004e0e);
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
+  color: rgb(99, 99, 99);
 }
 
 .notepopinner {
@@ -265,9 +278,15 @@ a:hover {
   -2px -2px 10px purple,
   2px 2px 10px white;
   transition: 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dynamicIsland:hover{
   transform: scale(1.2);
+}
+.dynamicIsland .btn{
+  color: white;
 }
 /* Dynamic island css ends  */
 
