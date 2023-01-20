@@ -14,6 +14,7 @@ import Notepop from "./components/Notepop";
 import Popup from "./components/Popup";
 import DynamicIsland from "./components/DynamicIsland";
 import AddNotes from "./components/AddNotes";
+import Timer from "./components/Timer";
 
 
 function App(props) {
@@ -54,6 +55,7 @@ function App(props) {
         <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
         <Route exact path="main/note/:id" note={props.note}  element={<Notepop showPopup={showPopup}/>} />
         <Route exact path="/createNote"   element={<AddNotes/>} />
+        <Route exact path="/timer"   element={<Timer/>} />
         
         </Routes>
         <DynamicIsland />

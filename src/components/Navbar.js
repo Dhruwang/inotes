@@ -31,7 +31,7 @@ export default function Navbar() {
           <Link className={`nav-link ${location==='/'?'active':''}`}to="/about">About</Link>
         </li>
         <li className="nav-item">
-          <Link className={`nav-link ${location==='/'?'active':''}`}to="/about">tools</Link>
+          <Link className={`nav-link ${location==='/'?'active':''}`}to="/timer">Timer</Link>
         </li>
         <li className="nav-item">
           <Link className={`nav-link ${location==='/'?'active':''}`}to="/about">account</Link>
