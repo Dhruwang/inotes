@@ -34,6 +34,7 @@ const NoteState = (props) => {
     
   // To add Notes 
   const AddNotes = async (title, description) => {
+    console.log("runnion")
     const response = await fetch(`${host}/api/notes/addnotes`, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {

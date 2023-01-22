@@ -41,14 +41,14 @@ export default function AddNotes(props) {
       <div className='addNoteInner'>
       <form>
         <div className="mb-3">
-          <input type="text" className="form-control fs-1" placeholder='Heading' id="title" name='title' value={note.title} onChange={onChange} />
+          <input type="text" className="form-control fs-1" placeholder='Heading' id="addTitle" name='title' value={note.title} onChange={onChange} />
         </div>
         <hr></hr>
         {tags.map((element)=>{
             return <button id={element} className='tagname btn mx-2' onClick={handleTag}>+ {element}</button>
         })} 
         <div className="my-3">
-          <textarea type="text" className="form-control" id="description" placeholder='Description' name='description' value={note.description} onChange={onChange} />
+          <textarea type="text" className="form-control" id="addDescription" placeholder='Description' name='description' value={note.description} onChange={onChange} />
         </div>
         {/* <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleOnClick}>Submit</button> */}
       </form>
