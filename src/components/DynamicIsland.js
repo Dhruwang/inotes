@@ -8,6 +8,7 @@ export default function DynamicIsland(props) {
   const navigate = useNavigate();
   const context = useContext(NoteContext)
    const { AddNotes } = context;
+   const {tagMain} = context
 
 
   const handleBtnName=()=>{

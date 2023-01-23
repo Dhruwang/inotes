@@ -3,9 +3,10 @@ import NoteContext from '../context/notes/noteContext'
 
 export default function AddNotes(props) {
   const context = useContext(NoteContext)
-  const { AddNotes } = context;
+  const { AddNotes,tagArr,setTagArr } = context;
   const tags = ["Personal","Business","Study","Code","Important"]
   let tagMain = []
+  const [demo, setdemo] = useState([])
 
   const [note, setNote] = useState({ title: "", description: "" })
 
@@ -16,6 +17,8 @@ export default function AddNotes(props) {
       tagMain = tagMain.filter((element)=>{
         return element != tag
       })
+      setdemo(tagMain)
+      console.log(demo)
       document.getElementById(tag).style.backgroundColor = "transparent";
     document.getElementById(tag).innerHTML = "+ " + tag ;
     }
@@ -25,13 +28,6 @@ export default function AddNotes(props) {
     document.getElementById(tag).innerHTML = tag + " x";
     }
     
-  }
-  const handleOnClick = (event) => {
-    event.preventDefault()
-    AddNotes(note.title, note.description)
-    setNote({ title: "", description: "" })
-    // props.showAlert("success","notes added successfully")
-
   }
   const onChange = (event) => {
     setNote({ ...note, [event.target.name]: event.target.value })

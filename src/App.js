@@ -40,6 +40,7 @@ function App(props) {
     })
     console.log(popup)
   }
+
   return (
     <NoteState>
       <BrowserRouter>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Notepop(props) {
   const context = useContext(NoteContext)
-  const {notebyId, notes, getNotes, editNotes, getNotesById ,DeleteNotes} = context;
+  const {notebyId, editNotes, getNotesById} = context;
   const [editable, seteditable] = useState("false")
   const save = document.getElementById("save")
   const edit = document.getElementById("edit")
