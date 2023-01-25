@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 
 // function to check and uncheck task
-export default function Task() {
+export default function Task(props) {
 
   const [status, setstatus] = useState(false)
   
@@ -44,8 +44,8 @@ export default function Task() {
       </button>
        
         <div className='taskContent' id='taskContent'>
-          <s id="strike">Take oUt Trash</s>
-          <span id="nonStrike">Take oUt Trash</span>
+          <s id="strike">{props.task}</s>
+          <span id="nonStrike">{props.task}</span>
           
         </div>
     </div>

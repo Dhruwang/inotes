@@ -15,6 +15,7 @@ import Popup from "./components/Popup";
 import AddNotes from "./components/AddNotes";
 import Timer from "./components/Timer";
 import Todo from "./components/Todo";
+import TodoState from "./context/todos/TodoState";
 
 
 function App(props) {
@@ -43,6 +44,7 @@ function App(props) {
 
   return (
     <NoteState>
+      <TodoState >
       <BrowserRouter>
         <Navbar />
         <Popup popup={popup} />
@@ -61,6 +63,7 @@ function App(props) {
         
         </Routes>
       </BrowserRouter>
+      </TodoState>
     </NoteState>
   );
 }
