@@ -70,8 +70,8 @@ export default function Notepop(props) {
           
           <div className='notePopContent'>
           
-            <h1 id='title' className='text-dark' contentEditable={editable}>{notebyId[0]['title']}</h1>
-            <p  id="description" className='text-dark' contentEditable={editable}>{notebyId[0]['description']}</p>
+            <h1 id='title'  contentEditable={editable}>{notebyId[0]['title']}</h1>
+            <p  id="description"  contentEditable={editable}>{notebyId[0]['description']}</p>
           </div>
         
             
