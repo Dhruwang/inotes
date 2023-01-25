@@ -1,24 +1,16 @@
 import React,{useContext,useEffect} from 'react'
 import Task from './Task'
-import TodoContext from '../context/todos/todoContext'
 
-export default function TaskList() {
-  const context = useContext(TodoContext)
-  const {getTodos,todos} = context;
-
-  useEffect(() => {
-    getTodos();
-    
-  }, [])
-  
-
-  
-
+export default function TaskList(props) { 
+  console.log(props.taskArr)
   return (
-    todos && <div className='tasklist'>
-      {todos.map((element,index)=>{
+    props.taskArr && <div className='tasklist'>
+      {console.log(props.taskArr)}
+      {props.taskArr.map((element,index)=>{
         return <Task task={element} index={index} />
       })}
+       
+      
     </div>
   )
 }
