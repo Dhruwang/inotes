@@ -3,6 +3,7 @@ import TodoContext from "./todoContext";
 
 
 export default function TodoState(props) {
+    const [todos, settodos] = useState()
     const host = 'http://localhost:5000'
 
     const getTodos = async () => {
@@ -14,10 +15,12 @@ export default function TodoState(props) {
             },
         })
         const json = await response.json()
+        console.log(json)
+        settodos(json)
 
     }
     return (
-        <TodoContext.Provider value={{getTodos}}>
+        <TodoContext.Provider value={{getTodos,todos}}>
       {props.children}
     </TodoContext.Provider>
     )

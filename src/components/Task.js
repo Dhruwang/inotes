@@ -7,8 +7,8 @@ export default function Task(props) {
   
 
   const toggleStrike=()=>{
-    const strike = document.getElementById("strike")
-  const nonStrike = document.getElementById("nonStrike")
+    const strike = document.getElementById(`strike${props.index}`)
+  const nonStrike = document.getElementById(`nonStrike${props.index}`)
     if (status===false) {
       strike.style.display = "none"
       nonStrike.style.display = "block"
@@ -19,10 +19,7 @@ export default function Task(props) {
     }
   }
   const handleTaskClick=()=>{
-    const taskCheck = document.getElementById("taskCheck")
-    const taskContent = document.getElementById("taskContent")
-    
-
+    const taskCheck = document.getElementById(`taskCheck${props.index}`)
     if(status===true){
       taskCheck.style.backgroundColor = "transparent";
       setstatus(false)
@@ -40,12 +37,12 @@ export default function Task(props) {
   return (
     <div className='task'>
       <button className='btn'  onClick={handleTaskClick}>
-         <div className='checkbox' aria-checked={status} id='taskCheck'></div>
+         <div className='checkbox' aria-checked={status} id={`taskCheck${props.index}`}></div>
       </button>
        
-        <div className='taskContent' id='taskContent'>
-          <s id="strike">{props.task}</s>
-          <span id="nonStrike">{props.task}</span>
+        <div className='taskContent' id={`taskContent`}>
+          <s id={`strike${props.index}`}>{props.task}</s>
+          <span id={`nonStrike${props.index}`}>{props.task}</span>
           
         </div>
     </div>
