@@ -6,10 +6,15 @@ const TodoSchema = new Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:"users"
     },
-    task :{
+    taskRemaining :{
       type:[String],
       required:true
     },
+    taskCompleted :{
+      type:[String],
+      required:true
+    },
+    
     
   });
   

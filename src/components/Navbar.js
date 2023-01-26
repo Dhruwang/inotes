@@ -25,7 +25,7 @@ export default function Navbar() {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav">
     <li className="nav-item active">
-          <Link className={`nav-link ${location==='/'?'active':''}`} to="/">Home </Link>
+          <Link className={`nav-link ${location==='/'?'active':''}`} to="/main">Home </Link>
         </li>
         <li className="nav-item">
           <Link className={`nav-link ${location==='/'?'active':''}`}to="/todo">TODOs</Link>

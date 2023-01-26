@@ -1,6 +1,7 @@
 import React,{useEffect,useContext} from 'react'
 import TaskList from './TaskList'
 import TodoContext from '../context/todos/todoContext';
+import NewTaskList from './NewTaskList';
 
 export default function Todo() {
   const context = useContext(TodoContext)
@@ -12,10 +13,9 @@ export default function Todo() {
   }, [])
   return (
     todos && <div className='todo'>
-      {console.log(todos)}
       <h1>Manage Your<span> todos !</span></h1>
-      <div className='text-center d-flex justify-content-center'>
-        <button className = "newTodo">
+      <div className=' d-flex justify-content-center'>
+        <button className = " newTodo">
         <h3>NEW TODO</h3>
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-clipboard-plus" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
@@ -25,9 +25,12 @@ export default function Todo() {
       </button>
       </div>
       <p>Currently running</p>
-      <div className='d-flex'>
-      {todos.map((element)=>{
-        return <TaskList taskArr={element.task}/>
+      <div className='todoContainer d-flex'>
+        <div className='new'>
+        <NewTaskList />
+        </div>
+      {todos && todos.map((element)=>{
+        return <TaskList taskCompleted={element["taskCompleted"]} taskRemaining={element["taskRemaining"]} id ={element["_id"]}/>
       })}
       </div>
       

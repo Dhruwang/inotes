@@ -2,12 +2,13 @@ import React,{useContext,useEffect} from 'react'
 import Task from './Task'
 
 export default function TaskList(props) { 
-  console.log(props.taskArr)
   return (
-    props.taskArr && <div className='tasklist'>
-      {console.log(props.taskArr)}
-      {props.taskArr.map((element,index)=>{
-        return <Task task={element} index={index} />
+    (props.taskCompleted || props.taskRemaining) && <div className='tasklist'>
+      {props.taskRemaining.map((element,index)=>{
+        return <Task task={element} index={index} key={index} id={props.id} />
+      })}
+      {props.taskCompleted.map((element,index)=>{
+        return <Task task={element} index={-1} key={index} id={props.id}/>
       })}
        
       
