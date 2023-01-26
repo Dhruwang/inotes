@@ -26,9 +26,9 @@ export default function Todo() {
       </div>
       <p>Currently running</p>
       <div className='todoContainer d-flex'>
-        <div className='new'>
+        {/* <div className='new'> */}
         <NewTaskList />
-        </div>
+        {/* </div> */}
       {todos && todos.map((element)=>{
         return <TaskList taskCompleted={element["taskCompleted"]} taskRemaining={element["taskRemaining"]} id ={element["_id"]}/>
       })}

@@ -366,7 +366,7 @@ margin-bottom: 0;
 /* todo css ends */
 /* tasklist css starts  */
 .tasklist{
-  width: 20rem;
+
   border: 2px solid var(--lb);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -376,7 +376,7 @@ margin-bottom: 0;
 /* tasklist css ends  */
 /* task css starts  */
 .task{
-  width: 100%;
+  width: 20rem;
   height: 7vh;
   background-color: var(--db);
   border-radius: 15px;  
@@ -409,6 +409,14 @@ s{
 /* task css ends */
 
 /* notepop css ends  */
+/* NewTaskList css starts  */
+.newTaskInput{
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  color: white;
+}
+/* NewTaskList css ends */
 
 @media (max-width: 1200px) {}
 

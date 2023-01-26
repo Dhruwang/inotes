@@ -21,6 +21,7 @@ export default function TodoState(props) {
         settodos(json)
 
     }
+    // function to transfer a task from taskRemaining to taskCompleted 
     const  markTaskAsCompleted=async(id,task)=>{
         console.log(id)
         const response = await fetch(`${host}/api/todos/taskCompleted`,{

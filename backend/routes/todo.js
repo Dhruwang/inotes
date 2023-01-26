@@ -35,6 +35,7 @@ router.post("/CreateTodos",fetchUser,async(req,res)=>{
     }
     
 })
+
 router.put("/taskCompleted",async(req,res)=>{
     const todoId = req.body.id;
     const task = req.body.task;
