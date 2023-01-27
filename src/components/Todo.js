@@ -7,6 +7,11 @@ export default function Todo() {
   const context = useContext(TodoContext)
   const {getTodos,todos} = context;
 
+  const createNewTodo =()=>{
+    const newTaskList = document.getElementById("newTaskList")
+    newTaskList.style.display = "block"
+  }
+
   useEffect(() => {
     getTodos();
     
@@ -15,7 +20,7 @@ export default function Todo() {
     todos && <div className='todo'>
       <h1>Manage Your<span> todos !</span></h1>
       <div className=' d-flex justify-content-center'>
-        <button className = " newTodo">
+        <button className = " newTodo" onClick={createNewTodo}>
         <h3>NEW TODO</h3>
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-clipboard-plus" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />

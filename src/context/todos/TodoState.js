@@ -7,7 +7,19 @@ export default function TodoState(props) {
     const host = 'http://localhost:5000'
 
 
-
+// Function to create a todo 
+const  createTodo=async(taskArr)=>{
+    const response = await fetch(`${host}/api/todos/CreateTodos`,{
+        method: "POST",
+        headers :{
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+        },
+        
+        body: JSON.stringify(taskArr)
+    })
+    
+}
 // Function to fetch all todos 
     const getTodos = async () => {
         const response = await fetch(`${host}/api/todos/fetchTodos`, {
@@ -37,7 +49,7 @@ export default function TodoState(props) {
     }
     
     return (
-        <TodoContext.Provider value={{getTodos,todos,markTaskAsCompleted}}>
+        <TodoContext.Provider value={{getTodos,todos,markTaskAsCompleted,createTodo}}>
       {props.children}
     </TodoContext.Provider>
     )

@@ -19,13 +19,12 @@ router.get("/fetchTodos",fetchUser,async(req,res)=>{
 router.post("/CreateTodos",fetchUser,async(req,res)=>{
     try {
         const Newtodo = req.body
-
-    if(Newtodo.taskArr.legth===0){
+    if(Newtodo.length===0){
         res.status(400).json({"err":"Empty array"})
         return
     }
     const todo = new todos({
-        user:req.user.id,taskRemaining:Newtodo.taskArr
+        user:req.user.id,taskRemaining:Newtodo
     })
     const savedtodo = await todo.save()
     res.status(201).send(savedtodo)

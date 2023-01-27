@@ -390,7 +390,7 @@ margin-bottom: 0;
   height: 1rem;
   width: 1rem;
   border-radius: 1rem;
-  border: 2px solid rgb(255, 0, 217);
+  border: 2px solid rgb(0, 255, 0);
 
 }
 .taskContent{
@@ -400,7 +400,7 @@ s{
  text-decoration: line-through;
 }
 .fillPink{
-  background-color: rgb(255, 0, 217);
+  background-color: rgb(0, 244, 0);
 }
 .strike{
   text-decoration: line-through;
@@ -410,6 +410,9 @@ s{
 
 /* notepop css ends  */
 /* NewTaskList css starts  */
+.newTaskList{
+  display: none;
+}
 .newTaskInput{
   background-color: transparent;
   border: none;
