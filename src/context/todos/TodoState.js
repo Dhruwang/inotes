@@ -47,9 +47,20 @@ const  createTodo=async(taskArr)=>{
         })
         
     }
+    // function to delete todo
+    const  deleteTodo=async(id)=>{
+        const response = await fetch(`${host}/api/todos/deleteTodo?id=${id}`,{
+            method: "DELETE",
+            headers :{
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('token')
+            },
+        })
+        
+    }
     
     return (
-        <TodoContext.Provider value={{getTodos,todos,markTaskAsCompleted,createTodo}}>
+        <TodoContext.Provider value={{getTodos,todos,markTaskAsCompleted,createTodo,deleteTodo}}>
       {props.children}
     </TodoContext.Provider>
     )

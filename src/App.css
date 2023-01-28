@@ -3,6 +3,28 @@
   --db: #041955 ;
   --lb: rgb(134, 218, 248);
 }
+/* designing scrollbar starts  */
+/* width */
+::-webkit-scrollbar {
+  height: 0px;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--db);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--lb)
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* designing scrollbar ends */
 .App {
   text-align: center;
 
@@ -332,11 +354,11 @@ a:hover {
 .todo h1{
   text-transform: uppercase;
   font-weight: 900;
-  color: white;
+  color:var(--db)
 }
 .todo h1 span{
   font-weight: 900;
-  color: #041955;
+  color: var(--lb);
 }
 .todo p{
   color: var(--lb);
@@ -365,13 +387,25 @@ margin-bottom: 0;
 }
 /* todo css ends */
 /* tasklist css starts  */
+.taskListContainer{
+  margin: 1rem;
+}
+.taskListContainerRight{
+  padding-top: 1rem;
+}
 .tasklist{
-
+  /* max-height: 50vh;  */
   border: 2px solid var(--lb);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  margin: 1rem;
+  /* overflow-anchor:auto;  */
 
+}
+.deleteTodo{
+  border: 1px solid var(--lb);
+  border-left: none;
+  border-radius: 0px;
+  color: var(--lb);
 }
 /* tasklist css ends  */
 /* task css starts  */
@@ -385,6 +419,7 @@ margin-bottom: 0;
   padding: 0rem 1rem;
   color: white;
   margin: 0.5rem 0rem;
+  /* overflow: scroll; */
 }
 .checkbox{
   height: 1rem;

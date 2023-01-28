@@ -13,7 +13,7 @@ const fetchUser = (req,res,next)=>{
         req.user = data.user
         // console.log(req.user)
     } catch (error) {
-        res.status.send({err:"please enter valid token"})
+        res.status(400).send({err:"please enter valid token"})
     }
     next()
 }
