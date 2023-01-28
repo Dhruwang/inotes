@@ -4,7 +4,7 @@ import TodoContext from '../context/todos/todoContext'
 export default function NewTaskList() {
     const [empty, setempty] = useState(true)
     const context = useContext(TodoContext)
-    const { createTodo,getTodos } = context
+    const { createTodo } = context
 
     const cancel = ()=>{
         const newTask = document.getElementById("newTaskList")
@@ -38,7 +38,7 @@ export default function NewTaskList() {
         createTodo(taskArr);
         const newTask = document.getElementById("newTaskList")
         newTask.style.display = "none"
-        getTodos()
+        window.location.reload();
 
     }
     return (

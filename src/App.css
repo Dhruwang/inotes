@@ -31,7 +31,7 @@
 }
 
 body {
-  background-color: #3450A1;
+  background-color: var(--background);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -394,12 +394,13 @@ margin-bottom: 0;
   padding-top: 1rem;
 }
 .tasklist{
-  /* max-height: 50vh;  */
   border: 2px solid var(--lb);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  /* overflow-anchor:auto;  */
-
+}
+.taskListContainerRight{
+  display: flex;
+  flex-direction: column;
 }
 .deleteTodo{
   border: 1px solid var(--lb);
@@ -455,6 +456,29 @@ s{
   color: white;
 }
 /* NewTaskList css ends */
+
+/* todoDetails css starts  */
+.todoDetailsMain{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todoDetails{
+  height: 80vh;
+  width: 80vw;
+  border: 2px solid red;
+}
+.todoDetailsTask{
+  padding: 1rem;
+  height: 100%;
+  width: 50%;
+  border: 2px solid green;
+  background-color: var(--db);
+  color: white;
+}
+/* todoDetails css ends */
 
 @media (max-width: 1200px) {}
 

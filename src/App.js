@@ -16,6 +16,7 @@ import AddNotes from "./components/AddNotes";
 import Timer from "./components/Timer";
 import Todo from "./components/Todo";
 import TodoState from "./context/todos/TodoState";
+import TodoDetails from "./components/TodoDetails";
 
 
 function App(props) {
@@ -41,6 +42,7 @@ function App(props) {
     })
     console.log(popup)
   }
+ 
 
   return (
     <NoteState>
@@ -60,6 +62,7 @@ function App(props) {
         <Route exact path="/createNote"   element={<AddNotes/>} />
         <Route exact path="/timer"   element={<Timer/>} />
         <Route exact path="/todo"   element={<Todo/>} />
+        <Route exact path="/todo/viewDetails/:id"   element={<TodoDetails/>} />
         
         </Routes>
       </BrowserRouter>

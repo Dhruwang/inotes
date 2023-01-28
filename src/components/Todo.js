@@ -5,7 +5,7 @@ import NewTaskList from './NewTaskList';
 
 export default function Todo() {
   const context = useContext(TodoContext)
-  const {getTodos,todos} = context;
+  const {getTodos,todos,fetchTodo} = context;
 
   const createNewTodo =()=>{
     const newTaskList = document.getElementById("newTaskList")
@@ -31,12 +31,13 @@ export default function Todo() {
       </div>
       <p>Currently running</p>
       <div className='todoContainer d-flex'>
-        {/* <div className='new'> */}
         <NewTaskList />
-        {/* </div> */}
       {todos && todos.map((element)=>{
         return <TaskList taskCompleted={element["taskCompleted"]} taskRemaining={element["taskRemaining"]} id ={element["_id"]}/>
       })}
+      </div>
+      <div>
+      <h6>{todos.length===0?"no todos available":""}</h6>
       </div>
       
       <p>Previously Created</p>

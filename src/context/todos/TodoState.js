@@ -33,6 +33,18 @@ const  createTodo=async(taskArr)=>{
         settodos(json)
 
     }
+    // fetch a single todo 
+    const fetchTodo=async(id)=>{
+        const response = await fetch(`${host}/api/todos/fetchTodo?id=${id}`, {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('token')
+            },
+        })
+        const json = await response.json()
+        settodos(json)
+    }
     // function to transfer a task from taskRemaining to taskCompleted 
     const  markTaskAsCompleted=async(id,task)=>{
         console.log(id)
@@ -60,7 +72,7 @@ const  createTodo=async(taskArr)=>{
     }
     
     return (
-        <TodoContext.Provider value={{getTodos,todos,markTaskAsCompleted,createTodo,deleteTodo}}>
+        <TodoContext.Provider value={{getTodos,todos,markTaskAsCompleted,createTodo,deleteTodo,fetchTodo}}>
       {props.children}
     </TodoContext.Provider>
     )

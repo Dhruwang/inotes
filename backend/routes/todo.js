@@ -8,7 +8,19 @@ const router = express.Router()
 router.get("/fetchTodos", fetchUser, async (req, res) => {
     try {
         const userId = req.user.id
-        const allTodos = await todos.find({ user: userId }).sort({ "_id": -1 })
+        const singleTodo = await todos.find({ user: userId }).sort({ "_id": -1 })
+        res.send(singleTodo)
+    } catch (error) {
+        console.log(error.message)
+        res.status(401).json({ err: "internal server error" })
+    }
+
+})
+router.get("/fetchTodo", fetchUser, async (req, res) => {
+    try {
+        const userId = req.user.id
+        const todoId = req.query.id
+        const allTodos = await todos.find({ user: userId , _id : todoId })
         res.send(allTodos)
     } catch (error) {
         console.log(error.message)
