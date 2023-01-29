@@ -5,12 +5,16 @@ import mongoose from 'mongoose';
 export default function TodoDetails() {
     const context = useContext(TodoContext)
     const { fetchTodo, todos } = context
+    const [date, setdate] = useState([])
+    // const [date, setdate] = useState("")
 
     const getTodo = () => {
         const index = window.location.href.lastIndexOf("/")
         const todoId = window.location.href.slice(index + 1,)
         fetchTodo(todoId)
+        
     }
+
 
 
     useEffect(() => {
@@ -23,8 +27,8 @@ export default function TodoDetails() {
             <div className='todoDetails'>
                 <div className='todoDetailsTask'>
                     <div className='todoCreationDate'>
-                        {console.log(todos)}
-                        Created {mongoose.Types.ObjectId(todos[0]._id).getTimestamp()}
+                        Created : {date[0]}
+                        {console.log(date)}  
                     </div>
                 </div>
             </div>
