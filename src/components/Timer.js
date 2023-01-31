@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 export default function Timer() {
   
-  const targetDate = new Date();
-targetDate.setHours(targetDate.getHours() + 22); 
+   //present time 
+// targetDate.setHours(targetDate.getHours() + 22); 
+let targetDate = new Date();
 
 function getTimeSegmentElements(segmentElement) {
   const segmentDisplay = segmentElement.querySelector(
@@ -89,7 +90,7 @@ function updateTimeSection(sectionID, timeValue) {
   const secondNumber = timeValue % 10 || 0;
   const sectionElement = document.getElementById(sectionID);
   const timeSegments =
-    sectionElement.querySelectorAll('.time-segment');
+sectionElement.querySelectorAll('.time-segment');
 
   updateTimeSegment(timeSegments[0], firstNumber);
   updateTimeSegment(timeSegments[1], secondNumber);
@@ -97,38 +98,28 @@ function updateTimeSection(sectionID, timeValue) {
 
 function getTimeRemaining(targetDateTime) {
   const nowTime = Date.now();
-  const complete = nowTime >= targetDateTime;
+  const complete = nowTime
 
-  if (complete) {
-    return {
-      complete,
-      seconds: 0,
-      minutes: 0,
-      hours: 0,
-    };
-  }
 
-  const secondsRemaining = Math.floor(
-    (targetDateTime - nowTime) / 1000
-  );
-  const hours = Math.floor(secondsRemaining / 60 / 60);
-  const minutes =
-    Math.floor(secondsRemaining / 60) - hours * 60;
-  const seconds = secondsRemaining % 60;
-
+  while (true) {
+    const hours = targetDate.getHours()
+  const minutes = targetDate.getMinutes()
+  const seconds = targetDate.getSeconds()
   return {
     complete,
     seconds,
     minutes,
     hours,
   };
+  } 
 }
 
 function updateAllSegments() {
+  targetDate = new Date()
   const timeRemainingBits = getTimeRemaining(
     new Date(targetDate).getTime()
+    
   );
-
   updateTimeSection('seconds', timeRemainingBits.seconds);
   updateTimeSection('minutes', timeRemainingBits.minutes);
   updateTimeSection('hours', timeRemainingBits.hours);
@@ -146,7 +137,11 @@ const countdownTimer = setInterval(() => {
 
 
 useEffect(() => {
-  updateAllSegments();
+  const interval = setInterval(() => {
+    updateAllSegments();
+    
+  }, 1000);
+  
 }, [])
 
 

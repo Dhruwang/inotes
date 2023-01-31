@@ -301,27 +301,42 @@ a:hover {
 }
 
 .countdown {
-  width: 50%;
+  /* border: 2px solid green;  */
+  height: 21rem;
+  width: 90%;
   display: flex;
   gap: 30px;
   font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .time-section {
+  width: 35%;
+  height: 100%;
   text-align: center;
   font-size: 30px;
+
 }
 
 .time-group {
+  /* border: 2px solid yellow;  */
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
   display: flex;
-  gap: 10px;
+
+
 }
 
 .time-segment {
   display: block;
-  font-size: 100px;
-  font-weight: 900;
-  width: 100px;
+  font-size: 13rem ;
+  font-weight: 700;
+  width: 100%;
+
+  
 }
 
 .segment-display {
@@ -336,18 +351,21 @@ a:hover {
   width: 100%;
   height: 50%;
   position: relative;
+
 }
 
 .segment-display__top {
   line-height: 1.5;
   color: #eee;
-  background-color: #111;
+  background-color: rgb(21, 21, 21);
+
 }
 
 .segment-display__bottom {
   line-height: 0;
   color: #fff;
-  background-color: #333;
+  background-color: rgb(21, 21, 21);
+
 }
 
 .segment-overlay {
@@ -355,7 +373,8 @@ a:hover {
   top: 0;
   perspective: 400px;
   height: 100%;
-  width: 100px;
+  width: 100%;
+  border-radius: 1rem;
 }
 
 .segment-overlay__top,
@@ -365,21 +384,27 @@ a:hover {
   text-align: center;
   width: 100%;
   height: 50%;
+  border-right: 3px solid black;
+  /* border-radius: 1rem; */
+  /* border: 2px solid rgb(108, 108, 108); */
+
 }
 
 .segment-overlay__top {
   top: 0;
   line-height: 1.5;
   color: #fff;
-  background-color: #111;
+  background-color: rgb(21, 21, 21);
   transform-origin: bottom;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
 }
 
 .segment-overlay__bottom {
   bottom: 0;
   line-height: 0;
   color: #eee;
-  background-color: #333;
+  background-color: rgb(21, 21, 21);
   border-top: 2px solid black;
   transform-origin: top;
 }
