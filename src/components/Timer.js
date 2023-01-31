@@ -1,105 +1,236 @@
-
+import { useEffect } from "react";
 export default function Timer() {
+  
+  const targetDate = new Date();
+targetDate.setHours(targetDate.getHours() + 22); 
 
-  var myhour, myminute, mysecond;
+function getTimeSegmentElements(segmentElement) {
+  const segmentDisplay = segmentElement.querySelector(
+    '.segment-display'
+  );
+  const segmentDisplayTop = segmentDisplay.querySelector(
+    '.segment-display__top'
+  );
+  const segmentDisplayBottom = segmentDisplay.querySelector(
+    '.segment-display__bottom'
+  );
 
-function flipNumber(el, newnumber) {
-  var thistop = el.find(".top").clone();
-  var thisbottom = el.find(".bottom").clone();
-  thistop.addClass("new");
-  thisbottom.addClass("new");
-  thisbottom.find(".text").text(newnumber);
-  el.find(".top").after(thistop);
-  el.find(".top.new").append(thisbottom);
-  el.addClass("flipping");
-  el.find(".top:not(.new)").find(".text").text(newnumber);
-  setTimeout(function () {
-    el.find(".bottom:not(.new)").find(".text").text(newnumber);
-  }, 500);
-}
-function setTime() {
-  document.querySelectorAll(".flipper").forEach((element)=>{
-    element.classList.remove(".flipping")
-  })
-  document.querySelectorAll(" .new").forEach((element)=>{
-    element.remove()
-  })
-  var date = new Date();
-  var seconds = date.getSeconds().toString();
-  if (seconds.length == 1) {
-    seconds = "0" + seconds;
-  }
-  var minutes = date.getMinutes().toString();
-  if (minutes.length == 1) {
-    minutes = "0" + minutes;
-  }
-  var hour = date.getHours();
-  if (hour > 12) {
-    hour = hour - 12;
-  }
-  if (hour == 0) {
-    hour = 12;
-  }
-  hour = hour.toString();
-  if (hour.length == 1) {
-    hour = "0" + hour;
-  }
-  if ($(myhour[0]).text() !== hour) {
-    flipNumber($(myhour[0]).closest(".flipper"), hour);
-  }
-  if ($(myminute[0]).text() !== minutes) {
-    flipNumber($(myminute[0]).closest(".flipper"), minutes);
-  }
-  if ($(mysecond[0]).text() !== seconds) {
-    flipNumber($(mysecond[0]).closest(".flipper"), seconds);
-  }
-  setTimeout(function () {
-    setTime();
-  }, 500);
+  const segmentOverlay = segmentDisplay.querySelector(
+    '.segment-overlay'
+  );
+  const segmentOverlayTop = segmentOverlay.querySelector(
+    '.segment-overlay__top'
+  );
+  const segmentOverlayBottom = segmentOverlay.querySelector(
+    '.segment-overlay__bottom'
+  );
+
+  return {
+    segmentDisplayTop,
+    segmentDisplayBottom,
+    segmentOverlay,
+    segmentOverlayTop,
+    segmentOverlayBottom,
+  };
 }
 
-document.addEventListener('DOMContentLoaded',function () {
-  myhour = document.querySelectorAll(".clock .flipper:nth-child(1) div:not(.new) .text");
-  console.log(myhour)
-  myminute = document.querySelectorAll(".clock .flipper:nth-child(2) div:not(.new) .text");
-  mysecond = document.querySelectorAll(".clock .flipper:nth-child(3) div:not(.new) .text");
-  console.log(mysecond)
-  setTime();
-});
+function updateSegmentValues(
+  displayElement,
+  overlayElement,
+  value
+) {
+  displayElement.textContent = value;
+  overlayElement.textContent = value;
+}
+
+function updateTimeSegment(segmentElement, timeValue) {
+  const segmentElements =
+    getTimeSegmentElements(segmentElement);
+
+  if (
+    parseInt(
+      segmentElements.segmentDisplayTop.textContent,
+      10
+    ) === timeValue
+  ) {
+    return;
+  }
+
+  segmentElements.segmentOverlay.classList.add('flip');
+
+  updateSegmentValues(
+    segmentElements.segmentDisplayTop,
+    segmentElements.segmentOverlayBottom,
+    timeValue
+  );
+
+  function finishAnimation() {
+    segmentElements.segmentOverlay.classList.remove('flip');
+    updateSegmentValues(
+      segmentElements.segmentDisplayBottom,
+      segmentElements.segmentOverlayTop,
+      timeValue
+    );
+
+    this.removeEventListener(
+      'animationend',
+      finishAnimation
+    );
+  }
+
+  segmentElements.segmentOverlay.addEventListener(
+    'animationend',
+    finishAnimation
+  );
+}
+
+function updateTimeSection(sectionID, timeValue) {
+  const firstNumber = Math.floor(timeValue / 10) || 0;
+  const secondNumber = timeValue % 10 || 0;
+  const sectionElement = document.getElementById(sectionID);
+  const timeSegments =
+    sectionElement.querySelectorAll('.time-segment');
+
+  updateTimeSegment(timeSegments[0], firstNumber);
+  updateTimeSegment(timeSegments[1], secondNumber);
+}
+
+function getTimeRemaining(targetDateTime) {
+  const nowTime = Date.now();
+  const complete = nowTime >= targetDateTime;
+
+  if (complete) {
+    return {
+      complete,
+      seconds: 0,
+      minutes: 0,
+      hours: 0,
+    };
+  }
+
+  const secondsRemaining = Math.floor(
+    (targetDateTime - nowTime) / 1000
+  );
+  const hours = Math.floor(secondsRemaining / 60 / 60);
+  const minutes =
+    Math.floor(secondsRemaining / 60) - hours * 60;
+  const seconds = secondsRemaining % 60;
+
+  return {
+    complete,
+    seconds,
+    minutes,
+    hours,
+  };
+}
+
+function updateAllSegments() {
+  const timeRemainingBits = getTimeRemaining(
+    new Date(targetDate).getTime()
+  );
+
+  updateTimeSection('seconds', timeRemainingBits.seconds);
+  updateTimeSection('minutes', timeRemainingBits.minutes);
+  updateTimeSection('hours', timeRemainingBits.hours);
+
+  return timeRemainingBits.complete;
+}
+
+const countdownTimer = setInterval(() => {
+  const isComplete = updateAllSegments();
+
+  if (isComplete) {
+    clearInterval(countdownTimer);
+  }
+}, 1000);
+
+
+useEffect(() => {
+  updateAllSegments();
+}, [])
+
+
+
   return (
     <div className='timer'>
-        <h1> Flip Clock </h1>
-    <div class="clock">
-        <div class="flipper">
-            <div class="gear"></div>
-            <div class="gear"></div>
-            <div class="top">
-                <div class="text">00</div>
+          <div class="countdown">
+      <div class="time-section" id="hours">
+        <div class="time-group">
+          <div class="time-segment">
+            <div class="segment-display">
+              <div class="segment-display__top"></div>
+              <div class="segment-display__bottom"></div>
+              <div class="segment-overlay">
+                <div class="segment-overlay__top"></div>
+                <div class="segment-overlay__bottom">       </div>
+              </div>
             </div>
-            <div class="bottom">
-                <div class="text">00</div>
+          </div>
+          <div class="time-segment">
+            <div class="segment-display">
+              <div class="segment-display__top"></div>
+              <div class="segment-display__bottom"></div>
+              <div class="segment-overlay">
+                <div class="segment-overlay__top"></div>
+                <div class="segment-overlay__bottom"></div>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="flipper">
-            <div class="gear"></div>
-            <div class="gear"></div>
-            <div class="top">
-                <div class="text">00</div>
+        <p>Hours</p>
+      </div>
+
+      <div class="time-section" id="minutes">
+        <div class="time-group">
+          <div class="time-segment">
+            <div class="segment-display">
+              <div class="segment-display__top"></div>
+              <div class="segment-display__bottom"></div>
+              <div class="segment-overlay">
+                <div class="segment-overlay__top"></div>
+                <div class="segment-overlay__bottom"></div>
+              </div>
             </div>
-            <div class="bottom">
-                <div class="text">00</div>
+          </div>
+          <div class="time-segment">
+            <div class="segment-display">
+              <div class="segment-display__top"></div>
+              <div class="segment-display__bottom"></div>
+              <div class="segment-overlay">
+                <div class="segment-overlay__top"></div>
+                <div class="segment-overlay__bottom"></div>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="flipper">
-            <div class="gear"></div>
-            <div class="gear"></div>
-            <div class="top">
-                <div class="text">00</div>
+        <p>Minutes</p>
+      </div>
+
+      <div class="time-section" id="seconds">
+        <div class="time-group">
+          <div class="time-segment">
+            <div class="segment-display">
+              <div class="segment-display__top"></div>
+              <div class="segment-display__bottom"></div>
+              <div class="segment-overlay">
+                <div class="segment-overlay__top"></div>
+                <div class="segment-overlay__bottom"></div>
+              </div>
             </div>
-            <div class="bottom">
-                <div class="text">00</div>
+          </div>
+          <div class="time-segment">
+            <div class="segment-display">
+              <div class="segment-display__top"></div>
+              <div class="segment-display__bottom"></div>
+              <div class="segment-overlay">
+                <div class="segment-overlay__top"></div>
+                <div class="segment-overlay__bottom"></div>
+              </div>
             </div>
+          </div>
         </div>
+        <p>Seconds</p>
+      </div>
     </div>
     </div>
   );
