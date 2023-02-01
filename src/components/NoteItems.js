@@ -19,7 +19,9 @@ export default function NoteItems(props) {
                         <i className="fa-solid fa-trash mx-2" onClick={()=>{DeleteNotes(note._id)}}></i>
                         <i className="fa-solid fa-pen-to-square mx-2" onClick={()=>{updateNote(note)}}></i>
                     </div>
+                    <div className='noteDate'>{note.createdAt.slice(0,10)}</div>
             </div>
+            
             </Link>
         </div>
         

@@ -38,7 +38,7 @@ export default function Navbar() {
         </li>
     </ul>
     {!localStorage.getItem("token")?<div className="logSign mx-3">
-    </div>:<button className="btn btn-primary mx-1" onClick={handleLogOut} role="button">Logout</button>}
+    </div>:<button className="btn btn-secondary mx-1" onClick={handleLogOut} role="button">Logout</button>}
   </div>
 </nav>
   </>

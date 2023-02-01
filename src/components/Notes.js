@@ -91,7 +91,7 @@ export default function Notes(props) {
       </div>
       <div className='Notecontainer '>
         {notes.length === 0 && "no notes to Display"}
-        <div className='row justify-content-center'>
+        <div className='row'>
           {notes.map((note) => {
             return <NoteItems updateNote={updateNote} note={note} />
           })}

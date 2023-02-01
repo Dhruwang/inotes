@@ -1,7 +1,8 @@
 :root {
-  --background: #000000;
-  --db: beige ;
+  --background: rgb(19, 19, 19);
+  --db: #313131 ;
   --lb: rgb(130, 130, 130);
+  --text: white;
 }
 /* designing scrollbar starts  */
 /* width */
@@ -50,11 +51,11 @@ i {
   cursor: pointer;
 }
 h3{
-  color: var(--db);
+  color: var(--text);
 }
 a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
 }
 
 a:hover {
@@ -105,7 +106,7 @@ a:hover {
   margin: 0rem 1rem;
   letter-spacing: 0.5rem;
   text-transform: uppercase;
-  color: rgb(154, 222, 244);
+  color: var(--text);
 
 }
 
@@ -162,7 +163,7 @@ a:hover {
 }
 
 .main h3 {
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
 }
@@ -197,9 +198,10 @@ a:hover {
   border: none;
  background-color: var(--db); 
   margin: 1rem;
+  transition:  all 0.2s ease-in-out;
 }
-.card a:hover{
-  color: pink;
+.card:hover{
+  transform: scale(1.1);
 }
 
 .card-body {
@@ -210,6 +212,10 @@ a:hover {
 .card-text {
   height: 6rem;
   overflow: hidden;
+}
+.noteDate{
+  margin-bottom: 1rem;
+  margin-left: 1rem;
 }
 
 /* NoteItem css ends  */
@@ -261,10 +267,10 @@ a:hover {
   justify-content: center;
 }
 .notepopinner > *{
-  color: black;
+  color: var(--text);
 }
 .notepopinner .btn {
-  color: black !important;
+  color: var(--text) !important;
   
 }
 
@@ -272,7 +278,6 @@ a:hover {
   border-radius: 2rem;
   border: none;
   background-color: var(--db);
-  box-shadow: 2px 2px 20px rgb(0, 11, 93);
   width: 70vw;
   text-align: left;
   padding: 1rem;
@@ -303,15 +308,21 @@ a:hover {
 .countdown {
   /* border: 2px solid green;  */
   height: 21rem;
-  width: 90%;
+  width: 80%;
   display: flex;
-  gap: 30px;
   font-family: sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
+.timerDots{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
 .time-section {
   width: 35%;
   height: 100%;
@@ -321,7 +332,7 @@ a:hover {
 }
 
 .time-group {
-  /* border: 2px solid yellow;  */
+  /* border: 2px solid yellow;   */
   padding: 1rem;
   width: 100%;
   height: 100%;
@@ -351,20 +362,22 @@ a:hover {
   width: 100%;
   height: 50%;
   position: relative;
+  border-radius: 1rem 1rem 0 0;
 
 }
 
 .segment-display__top {
   line-height: 1.5;
   color: #eee;
-  background-color: rgb(21, 21, 21);
+  background-color: rgb(15, 15, 15);
 
 }
 
 .segment-display__bottom {
   line-height: 0;
   color: #fff;
-  background-color: rgb(21, 21, 21);
+  background-color: rgb(15, 15, 15);
+  border-radius: 0rem 0rem 1rem 1rem;
 
 }
 
@@ -385,6 +398,7 @@ a:hover {
   width: 100%;
   height: 50%;
   border-right: 3px solid black;
+ 
   /* border-radius: 1rem; */
   /* border: 2px solid rgb(108, 108, 108); */
 
@@ -394,19 +408,21 @@ a:hover {
   top: 0;
   line-height: 1.5;
   color: #fff;
-  background-color: rgb(21, 21, 21);
+  background-color: rgb(15, 15, 15);
   transform-origin: bottom;
   border-bottom: 3px solid black;
   border-right: 3px solid black;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .segment-overlay__bottom {
   bottom: 0;
   line-height: 0;
   color: #eee;
-  background-color: rgb(21, 21, 21);
+  background-color: rgb(15, 15, 15);
   border-top: 2px solid black;
   transform-origin: top;
+  border-radius: 0rem 0rem 1rem 1rem;
 }
 
 .segment-overlay.flip .segment-overlay__top {
@@ -513,7 +529,7 @@ margin-bottom: 0;
   display: flex;
   align-items: center;
   padding: 0rem 1rem;
-  color: black;
+  color: var(--text);
   margin: 0.5rem 0rem;
   /* overflow: scroll; */
 }
