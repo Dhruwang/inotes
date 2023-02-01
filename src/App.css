@@ -217,6 +217,7 @@ a:hover {
   margin-bottom: 1rem;
   margin-left: 1rem;
 }
+
 .noteOptionBtn{
   float: right;
   color: var(--text);
@@ -301,6 +302,15 @@ a:hover {
   width: 70vw;
   text-align: left;
   padding: 1rem;
+}
+.notepopinner .left,.right{
+  width: 20vw;
+}
+.right{
+  text-align: end;
+}
+.middle{
+  text-align: center;
 }
 .noterpopinnertop{
   display: flex;
