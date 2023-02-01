@@ -217,6 +217,26 @@ a:hover {
   margin-bottom: 1rem;
   margin-left: 1rem;
 }
+.noteOptionBtn{
+  float: right;
+  color: var(--text);
+  position: absolute;
+  left:85%;
+  top: 5%;
+}
+.noteOptions{
+  /* border: 2px solid red;  */
+  width: 40%;
+  margin-top: 1rem;
+  float: right;  
+  color: var(--text);
+  position: absolute;
+  left: 70%;
+}
+.noteOptions > * {
+  color: var(--text);
+  padding: 8px;
+}
 
 /* NoteItem css ends  */
 /* modal css starts  */
