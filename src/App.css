@@ -100,11 +100,12 @@ a:hover {
   background: transparent;
   position: fixed;
 }
+.name{
+  letter-spacing: 0.5rem;
+}
 
 .navbar a {
-  text-underline-offset: 0;
   margin: 0rem 1rem;
-  letter-spacing: 0.5rem;
   text-transform: uppercase;
   color: var(--text);
 
@@ -112,6 +113,12 @@ a:hover {
 
 #navbarSupportedContent {
   justify-content: end;
+}
+.active{
+  color: var(--text) !important;
+  text-decoration: underline !important; 
+  text-underline-offset: 0.5rem;
+  text-underline-position: below; 
 }
 
 /* navbar css ends  */
@@ -492,17 +499,9 @@ a:hover {
   padding: 2rem;
   padding-top: 10vh;
 }
-.todo h1{
-  text-transform: uppercase;
-  font-weight: 900;
-  color:var(--db)
-}
-.todo h1 span{
-  font-weight: 900;
-  color: var(--lb);
-}
+
 .todo p{
-  color: var(--lb);
+  color: var(--text);
 }
 .newTodo{
   display: flex;
@@ -535,7 +534,7 @@ margin-bottom: 0;
   padding-top: 1rem;
 }
 .tasklist{
-  border: 2px solid var(--lb);
+  border: 2px solid var(--text);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
 }
@@ -543,12 +542,18 @@ margin-bottom: 0;
   display: flex;
   flex-direction: column;
 }
-.deleteTodo{
-  border: 1px solid var(--lb);
+.taskListContainerRight button{
+  border: 1px solid var(--text);
   border-left: none;
   border-radius: 0px;
-  color: var(--lb);
+  color: var(--text);
+  background-color: var(--background);
 }
+.taskListContainerRight button:hover{
+  background-color: var(--text);
+  color: var(--background);
+}
+
 /* tasklist css ends  */
 /* task css starts  */
 .task{
@@ -568,7 +573,15 @@ margin-bottom: 0;
   width: 1rem;
   border-radius: 1rem;
   border: 2px solid rgb(0, 146, 0);
+  display: inline-block;
+}
 
+.checkboxRed{
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  border: 2px solid rgb(255, 0, 0);
+  display: inline-block;
 }
 .taskContent{
   margin-left: 1rem;
@@ -609,15 +622,25 @@ s{
 .todoDetails{
   height: 80vh;
   width: 80vw;
-  border: 2px solid red;
+
 }
 .todoDetailsTask{
   padding: 1rem;
   height: 100%;
   width: 50%;
-  border: 2px solid green;
   background-color: var(--db);
   color: white;
+}
+.todoDetails p{
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.todoDetails p>*{
+  margin: 0.5rem 1rem;
+}
+.todoDetails h5{
+  margin: 1rem 0rem;
 }
 /* todoDetails css ends */
 

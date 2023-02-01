@@ -18,7 +18,7 @@ export default function Todo() {
   }, [])
   return (
     todos && <div className='todo'>
-      <h1>Manage Your<span> todos !</span></h1>
+      <h3>Todos</h3>
       <div className=' d-flex justify-content-center'>
         <button className = " newTodo" onClick={createNewTodo}>
         <h3>NEW TODO</h3>

@@ -89,8 +89,7 @@ export default function Timer() {
     const firstNumber = Math.floor(timeValue / 10) || 0;
     const secondNumber = timeValue % 10 || 0;
     const sectionElement = document.getElementById(sectionID);
-    const timeSegments =
-      sectionElement.querySelectorAll('.time-segment');
+    const timeSegments = sectionElement.querySelectorAll('.time-segment');
 
     updateTimeSegment(timeSegments[0], firstNumber);
     updateTimeSegment(timeSegments[1], secondNumber);
@@ -139,8 +138,8 @@ export default function Timer() {
   useEffect(() => {
     const interval = setInterval(() => {
       updateAllSegments();
-
     }, 1000);
+    return () => clearInterval(interval);
 
   }, [])
 
@@ -157,7 +156,7 @@ export default function Timer() {
                 <div class="segment-display__bottom"></div>
                 <div class="segment-overlay">
                   <div class="segment-overlay__top"></div>
-                  <div class="segment-overlay__bottom">       </div>
+                  <div class="segment-overlay__bottom"></div>
                 </div>
               </div>
             </div>
@@ -202,7 +201,6 @@ export default function Timer() {
           <p>Minutes</p>
         </div>
         <div className="timerDots">:</div>
-
         <div class="time-section" id="seconds">
           <div class="time-group">
             <div class="time-segment">
