@@ -34,11 +34,12 @@ function App(props) {
     }, 2000);
   }
 
-  const showPopup = (title,message)=>{
+  const showPopup = (title,message,id)=>{
     console.log("running")
     setpopup({
       title : title,
-      message : message
+      message : message,
+      id : id
     })
     console.log(popup)
   }
@@ -54,7 +55,7 @@ function App(props) {
         <Routes>
         
         <Route exact path="/" element={<Home/>} />
-        <Route exact path="/main" element={<Main />} />
+        <Route exact path="/main" element={<Main showPopup={showPopup}/>} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
         <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />

@@ -7,9 +7,14 @@ export default function Popup(props) {
     const {DeleteNotes} = context;
     const navigate = useNavigate();
   const handleDelete = ()=>{
+    if (props.popup.id) {
+      DeleteNotes(props.popup.id)
+      return;
+    }
     let index = window.location.href.lastIndexOf("/")
     DeleteNotes(window.location.href.slice(index+1,))
     navigate("/main");
+    return;
 
     
   }

@@ -24,7 +24,7 @@ export default function Main(props) {
       </svg>
       </button>
     </div>
-    <Notes showAlert={props.showAlert}/>
+    <Notes showAlert={props.showAlert} showPopup={props.showPopup}/>
     </div>
   )
 }
