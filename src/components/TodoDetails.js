@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 export default function TodoDetails() {
     const context = useContext(TodoContext)
     const { fetchTodo, todos } = context
+    var r = document.querySelector(':root');
 
 
     const getTodo = () => {
@@ -12,10 +13,16 @@ export default function TodoDetails() {
         const todoId = window.location.href.slice(index + 1,)
         fetchTodo(todoId)
     }
+    const setProgress =()=>{
+        console.log("hello")
+        r.style.setProperty('--progress', `${(todos[0].taskCompleted.length / (todos[0].taskCompleted.length + todos[0].taskRemaining.length))*180}deg`);
+    }
+    
+
 
     useEffect(() => {
         getTodo()
-    }, [])
+    },[])
 
 
     return (
@@ -35,7 +42,20 @@ export default function TodoDetails() {
                         return <p><div className='checkbox'></div> {element}</p>;
                     })}
                 </div>
+                <div className='todoChart'>
+                    <div class="circle-wrap">
+                        <div class="circle">
+                            <div class="mask full">
+                                <div class="fill"></div>
+                            </div>
+                            <div class="mask half">
+                                <div class="fill"></div>
+                            </div>
+                            <div class="inside-circle"> {setProgress()}</div>
+                        </div>
+                    </div>
             </div>
         </div>
+        </div >
     )
 }

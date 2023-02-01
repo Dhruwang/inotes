@@ -3,6 +3,7 @@
   --db: #313131 ;
   --lb: rgb(130, 130, 130);
   --text: white;
+  --progress : 0;
 }
 /* designing scrollbar starts  */
 /* width */
@@ -620,16 +621,22 @@ s{
   justify-content: center;
 }
 .todoDetails{
-  height: 80vh;
+  /* height: 60vh;  */
+  display: flex;
   width: 80vw;
+  background-color: var(--db);
+  padding: 1rem;
 
 }
 .todoDetailsTask{
-  padding: 1rem;
   height: 100%;
-  width: 50%;
-  background-color: var(--db);
+  width: 100%;
   color: white;
+}
+.todoChart{
+  /* border: 2px solid yellow;  */
+  margin: auto;
+  width: 40%;
 }
 .todoDetails p{
   display: flex;
@@ -641,6 +648,66 @@ s{
 }
 .todoDetails h5{
   margin: 1rem 0rem;
+}
+.circle-wrap {
+  border: 2px solid red;
+  margin: 150px auto;
+  width: 150px;
+  height: 150px;
+  background: #fefcff;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.circle-wrap .inside-circle {
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  background: #d2eaf1;
+  line-height: 120px;
+  text-align: center;
+  margin-top: 14px;
+  margin-left: 14px;
+  color: #1e51dc;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+/* color animation */
+
+/* 3rd progress bar */
+.mask .fill {
+  clip: rect(0px, 75px, 150px, 0px);
+  background-color: green;
+}
+
+.mask.full,
+.circle .fill {
+  animation: fill ease-in-out 1s;
+  transform: rotate(var(--progress));
+}
+
+@keyframes fill{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--progress));
+  }
 }
 /* todoDetails css ends */
 
