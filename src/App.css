@@ -121,6 +121,13 @@ a:hover {
   text-underline-offset: 0.5rem;
   text-underline-position: below; 
 }
+.nav-link{
+  transition:all 0.2s ease-in-out;
+}
+.nav-link:hover{
+  transform: scale(1.2);
+  color: white !important;
+}
 
 /* navbar css ends  */
 /* home page css starts */
@@ -625,7 +632,7 @@ s{
   display: flex;
   width: 80vw;
   background-color: var(--db);
-  padding: 1rem;
+  padding: 2rem;
 
 }
 .todoDetailsTask{
@@ -637,6 +644,8 @@ s{
   /* border: 2px solid yellow;  */
   margin: auto;
   width: 40%;
+  text-align: center;
+  color: white;
 }
 .todoDetails p{
   display: flex;
@@ -675,12 +684,12 @@ s{
   width: 122px;
   height: 122px;
   border-radius: 50%;
-  background: #d2eaf1;
+  background: var(--db);
   line-height: 120px;
   text-align: center;
   margin-top: 14px;
   margin-left: 14px;
-  color: #1e51dc;
+  color: var(--text);
   position: absolute;
   z-index: 100;
   font-weight: 700;

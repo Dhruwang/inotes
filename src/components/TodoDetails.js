@@ -13,16 +13,16 @@ export default function TodoDetails() {
         const todoId = window.location.href.slice(index + 1,)
         fetchTodo(todoId)
     }
-    const setProgress =()=>{
+    const setProgress = () => {
         console.log("hello")
-        r.style.setProperty('--progress', `${(todos[0].taskCompleted.length / (todos[0].taskCompleted.length + todos[0].taskRemaining.length))*180}deg`);
+        r.style.setProperty('--progress', `${(todos[0].taskCompleted.length / (todos[0].taskCompleted.length + todos[0].taskRemaining.length)) * 180}deg`);
     }
-    
+
 
 
     useEffect(() => {
         getTodo()
-    },[])
+    }, [])
 
 
     return (
@@ -43,6 +43,8 @@ export default function TodoDetails() {
                     })}
                 </div>
                 <div className='todoChart'>
+                    <h5>Progress</h5>
+                    <div>Status : {todos[0].taskRemaining.length===0?"Completed":"Pending"}</div>
                     <div class="circle-wrap">
                         <div class="circle">
                             <div class="mask full">
@@ -51,11 +53,11 @@ export default function TodoDetails() {
                             <div class="mask half">
                                 <div class="fill"></div>
                             </div>
-                            <div class="inside-circle"> {setProgress()}</div>
+                            <div class="inside-circle"> {setProgress()} {todos[0].taskCompleted.length+"/"+ (todos[0].taskCompleted.length + todos[0].taskRemaining.length)}</div>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
         </div >
     )
 }
