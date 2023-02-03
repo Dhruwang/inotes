@@ -13,7 +13,7 @@ import Signup from "./components/Signup";
 import Notepop from "./components/Notepop";
 import Popup from "./components/Popup";
 import AddNotes from "./components/AddNotes";
-import Timer from "./components/Timer";
+import Clock from "./components/Clock";
 import Todo from "./components/Todo";
 import TodoState from "./context/todos/TodoState";
 import TodoDetails from "./components/TodoDetails";
@@ -61,7 +61,7 @@ function App(props) {
         <Route exact path="/signup" element={<Signup showAlert={showAlert}/>} />
         <Route exact path="main/note/:id" note={props.note}  element={<Notepop showPopup={showPopup}/>} />
         <Route exact path="/createNote"   element={<AddNotes/>} />
-        <Route exact path="/timer"   element={<Timer/>} />
+        <Route exact path="/clock"   element={<Clock/>} />
         <Route exact path="/todo"   element={<Todo/>} />
         <Route exact path="/todo/viewDetails/:id"   element={<TodoDetails/>} />
         

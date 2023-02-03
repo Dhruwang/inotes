@@ -100,6 +100,7 @@ a:hover {
   width: 100%;
   background: transparent;
   position: fixed;
+  height: 10vh;
 }
 .name{
   letter-spacing: 0.5rem;
@@ -127,6 +128,26 @@ a:hover {
 .nav-link:hover{
   transform: scale(1.2);
   color: white !important;
+}
+.timerDropdown{
+  background-color: transparent;
+  color: var(--text);
+  border: none;
+  padding: 0rem 1rem;
+}
+#timerOptions{
+  display: none;
+  
+}
+.timerOptionsInner{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+}
+.dropdownContainer{
+  display: flex;
+  flex-direction: column;
 }
 
 /* navbar css ends  */
